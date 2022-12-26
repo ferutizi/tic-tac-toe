@@ -1,31 +1,37 @@
+import { useState } from "react";
+
 function App() {
   
-  const grid = [
+  const initialGrid = [
     ['1', '2', '3'],
     ['4', '5', '6'],
-    ['7', '6', '9'],
-  ]
+    ['7', '8', '9'],
+  ];
+  const [gridValues, setGridValues] = useState(initialGrid)
+  console.log(gridValues);
+  
 
   //grid positions
-  const p1 = grid[0][0];
-  const p2 = grid[0][1];
-  const p3 = grid[0][2];
-  const p4 = grid[1][0];
-  const p5 = grid[1][1];
-  const p6 = grid[1][2];
-  const p7 = grid[2][0];
-  const p8 = grid[2][1];
-  const p9 = grid[2][2];
+  const p1 = gridValues[0][0];
+  const p2 = gridValues[0][1];
+  const p3 = gridValues[0][2];
+  const p4 = gridValues[1][0];
+  const p5 = gridValues[1][1];
+  const p6 = gridValues[1][2];
+  const p7 = gridValues[2][0];
+  const p8 = gridValues[2][1];
+  const p9 = gridValues[2][2];
+  
   
   //win cases
-  const r0 = grid[0].join('');
-  const r1 = grid[1].join('');
-  const r2 = grid[2].join('');
-  const c0 = p1.concat(p4).concat(p7);
-  const c1 = p2.concat(p5).concat(p8);
-  const c2 = p3.concat(p6).concat(p9);
-  const d1 = p1.concat(p5).concat(p9);
-  const d2 = p3.concat(p5).concat(p7);
+  const r0 = /* gridValues[0].join(''); */p1 + p2 + p3;
+  const r1 = /* gridValues[1].join(''); */p4 + p5 + p6;
+  const r2 = /* gridValues[2].join(''); */p7 + p8 + p9;
+  const c0 = p1 + p4 + p7;
+  const c1 = p2 + p5 + p8;
+  const c2 = p3 + p6 + p9;
+  const d1 = p1 + p5 + p9;
+  const d2 = p3 + p5 + p7;
 
   const winCases = [r0, r1, r2, c0, c1, c2, d1, d2];
 
@@ -42,7 +48,14 @@ function App() {
   }
 
   const move = (indexRow, index) => {
-    console.log(indexRow, index);
+    console.log(gridValues);
+    console.log(gridValues[indexRow][index]);
+    
+    
+    setGridValues(
+      ...gridValues,
+      gridValues[indexRow][index] = 'x'
+    )
   }
 
   return (
@@ -50,7 +63,7 @@ function App() {
       <h1>Tic-Tac-Toe</h1>
       <table>
         <tbody>
-          {grid.map((row, indexRow) => 
+          {gridValues.map((row, indexRow) => 
             <tr key={indexRow}>{row.map((item, index) =>
               <td key={index} onClick={() => move(indexRow, index)}>{item}</td>
               )}</tr>
