@@ -7,9 +7,8 @@ function App() {
     ['4', '5', '6'],
     ['7', '8', '9'],
   ];
+
   const [gridValues, setGridValues] = useState(initialGrid)
-  console.log(gridValues);
-  
 
   //grid positions
   const p1 = gridValues[0][0];
@@ -24,9 +23,9 @@ function App() {
   
   
   //win cases
-  const r0 = /* gridValues[0].join(''); */p1 + p2 + p3;
-  const r1 = /* gridValues[1].join(''); */p4 + p5 + p6;
-  const r2 = /* gridValues[2].join(''); */p7 + p8 + p9;
+  const r0 = p1 + p2 + p3;
+  const r1 = p4 + p5 + p6;
+  const r2 = p7 + p8 + p9;
   const c0 = p1 + p4 + p7;
   const c1 = p2 + p5 + p8;
   const c2 = p3 + p6 + p9;
@@ -51,9 +50,8 @@ function App() {
     console.log(gridValues);
     console.log(gridValues[indexRow][index]);
     
-    
     setGridValues(
-      ...gridValues,
+      [...gridValues],
       gridValues[indexRow][index] = 'x'
     )
   }
