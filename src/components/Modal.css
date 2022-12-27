@@ -1,0 +1,17 @@
+.modal__container {
+    width: 20rem;
+    height: 15rem;
+    position: absolute;
+    z-index: 1;
+    background-color: wheat;
+    border-radius: 2em;
+}
+
+.modal__player {
+    font-size: 2em;
+}
+
+.modal__result {
+    font-size: 2em;
+    color: blue;
+}

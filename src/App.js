@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Modal from './components/Modal';
+import RestartButton from "./components/RestartButton";
+import restartButton from "./components/RestartButton";
 
 function App() {
   //game over cases
@@ -9,7 +11,6 @@ function App() {
   const [player, setPlayer] = useState('X');
   const [modal, setModal] = useState(false);
 
-  
   const initialGrid = [
     ['', '', ''],
     ['', '', ''],
@@ -76,7 +77,20 @@ function App() {
   return (
     <>
       <h1>Tic-Tac-Toe</h1>
-      {modal && <Modal winner={winner} player={player} tie={tie}/>}
+      {modal && 
+        <div className='modal__container'>
+          <Modal winner={winner} player={player} tie={tie}/>
+          <RestartButton
+            setWinner={setWinner}
+            setTie={setTie}
+            setPlays={setPlays}
+            setPlayer={setPlayer}
+            setModal={setModal}
+            setGridValues={setGridValues}
+            initialGrid={initialGrid}  
+          />
+        </div>
+      }
       <table>
         <tbody>
           {gridValues.map((row, indexRow) => 
