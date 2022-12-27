@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Modal from './components/Modal';
 import RestartButton from "./components/RestartButton";
-import restartButton from "./components/RestartButton";
 
 function App() {
   //game over cases
@@ -49,16 +48,19 @@ function App() {
     
     if(winPlayer1.length > 0) {
       setWinner(true);
-      setModal(true);
-      console.log('gano player X');
+      setTimeout(() => {
+        setModal(true);     
+      }, 350);
     } else if(winPlayer2.length > 0) {
       setWinner(true);
-      setModal(true);
-      console.log('gano player O');
+      setTimeout(() => {
+        setModal(true);     
+      }, 350);
     } else if(plays == 9) {
       setTie(true);
-      setModal(true);
-      console.log('empate');
+      setTimeout(() => {
+        setModal(true);     
+      }, 350);
     }
   }, [gridValues])
   
