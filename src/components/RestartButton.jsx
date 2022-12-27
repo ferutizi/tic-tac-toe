@@ -10,7 +10,7 @@ const RestartButton = ({ setWinner, setTie, setPlays, setPlayer, setModal, setGr
     };
 
     return(
-        <button onClick={() => restart()}>restart</button>
+        <button className="modal__button" onClick={() => restart()}>restart</button>
     );
 }
 

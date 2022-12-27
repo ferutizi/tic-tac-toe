@@ -1,17 +1,39 @@
 .modal__container {
     width: 20rem;
-    height: 15rem;
+    height: 17rem;
     position: absolute;
     z-index: 1;
-    background-color: wheat;
+    background-color: white;
+    border: 1px solid blue;
+    box-shadow: 2px 2px 4px black;
     border-radius: 2em;
+
 }
 
 .modal__player {
     font-size: 2em;
+    font-weight: 600;
 }
 
 .modal__result {
     font-size: 2em;
     color: blue;
+    font-weight: 800;
+}
+
+.modal__button {
+    border: none;
+    width: 8rem;
+    height: 3rem;
+    background-color: blue;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 2em;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px black;
+    text-shadow: 1px 1px 2px black;
+}
+
+.modal__button:active {
+    box-shadow: 1px 1px 2px black;
 }
