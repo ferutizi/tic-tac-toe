@@ -71,6 +71,7 @@ function App() {
   return (
     <>
       <h1>Tic-Tac-Toe</h1>
+      <div>
       <table>
         <tbody>
           {gridValues.map((row, indexRow) => 
@@ -80,6 +81,7 @@ function App() {
             )}
         </tbody>
       </table>
+      </div>
     </>
   );
 }
