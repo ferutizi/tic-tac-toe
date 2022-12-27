@@ -46,20 +46,19 @@ function App() {
     
     if(winPlayer1.length > 0) {
       setWinner(true);
-      console.log('gano player 1');
-    }
-    if(winPlayer2.length > 0) {
+      console.log('gano player X');
+    } else if(winPlayer2.length > 0) {
       setWinner(true);
-      console.log('gano player 2');
-    }
-    if(plays == 9) {
+      console.log('gano player X');
+    } else if(plays == 9) {
       setTie(true)
       console.log('empate');
     }
   }, [gridValues])
   
   const move = (indexRow, index) => {
-    if(!winner && !tie) {
+    let position = gridValues[indexRow][index]
+    if(!winner && !tie && position == '') {
       setGridValues(
         [...gridValues],
         gridValues[indexRow][index] = player
