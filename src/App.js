@@ -9,9 +9,9 @@ function App() {
 
   
   const initialGrid = [
-    ['1', '2', '3'],
-    ['4', '5', '6'],
-    ['7', '8', '9'],
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', ''],
   ];
 
   const [gridValues, setGridValues] = useState(initialGrid)
@@ -60,13 +60,11 @@ function App() {
   
   const move = (indexRow, index) => {
     if(!winner && !tie) {
-      console.log(player);
       setGridValues(
         [...gridValues],
         gridValues[indexRow][index] = player
       )
       setPlays(plays + 1)
-      console.log(plays);
       player === 'X' ? setPlayer('O') : setPlayer('X');
     }
   }
