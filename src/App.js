@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
+  //game over cases
+  const [winner, setWinner] = useState(false);
+  const [tie, setTie] = useState(false);
   
   const initialGrid = [
     ['1', '2', '3'],
@@ -34,26 +37,33 @@ function App() {
 
   const winCases = [r0, r1, r2, c0, c1, c2, d1, d2];
 
-  const win = (winCases) => {
-    const winPlayer1 = winCases.filter(e => e == '111');
-    const winPlayer2 = winCases.filter(e => e == '222');
+  useEffect(() => {
+    const winPlayer1 = winCases.filter(e => e == 'XXX');
+    const winPlayer2 = winCases.filter(e => e == 'OOO');
     
     if(winPlayer1.length > 0) {
+      setWinner(true);
       console.log('gano player 1');
     }
     if(winPlayer2.length > 0) {
+      setWinner(true);
       console.log('gano player 2');
     }
+  }, [gridValues])
+  
+  const win = (winCases) => {
+
   }
 
   const move = (indexRow, index) => {
-    console.log(gridValues);
-    console.log(gridValues[indexRow][index]);
+    console.log(winner);
     
-    setGridValues(
-      [...gridValues],
-      gridValues[indexRow][index] = 'x'
-    )
+    if(!winner && !tie) {
+      setGridValues(
+        [...gridValues],
+        gridValues[indexRow][index] = 'X'
+        )
+    }
   }
 
   return (
