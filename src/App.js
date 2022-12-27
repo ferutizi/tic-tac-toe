@@ -49,7 +49,7 @@ function App() {
       console.log('gano player X');
     } else if(winPlayer2.length > 0) {
       setWinner(true);
-      console.log('gano player X');
+      console.log('gano player O');
     } else if(plays == 9) {
       setTie(true)
       console.log('empate');
