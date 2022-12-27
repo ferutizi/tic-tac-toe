@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Modal from './components/Modal';
 
 function App() {
   //game over cases
@@ -6,6 +7,7 @@ function App() {
   const [tie, setTie] = useState(false);
   const [plays, setPlays] = useState(0);
   const [player, setPlayer] = useState('X');
+  const [modal, setModal] = useState(false);
 
   
   const initialGrid = [
@@ -46,12 +48,15 @@ function App() {
     
     if(winPlayer1.length > 0) {
       setWinner(true);
+      setModal(true);
       console.log('gano player X');
     } else if(winPlayer2.length > 0) {
       setWinner(true);
+      setModal(true);
       console.log('gano player O');
     } else if(plays == 9) {
-      setTie(true)
+      setTie(true);
+      setModal(true);
       console.log('empate');
     }
   }, [gridValues])
@@ -71,7 +76,7 @@ function App() {
   return (
     <>
       <h1>Tic-Tac-Toe</h1>
-      <div>
+      {modal && <Modal winner={winner} player={player} tie={tie}/>}
       <table>
         <tbody>
           {gridValues.map((row, indexRow) => 
@@ -81,7 +86,6 @@ function App() {
             )}
         </tbody>
       </table>
-      </div>
     </>
   );
 }
