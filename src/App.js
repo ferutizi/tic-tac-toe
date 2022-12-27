@@ -4,6 +4,9 @@ function App() {
   //game over cases
   const [winner, setWinner] = useState(false);
   const [tie, setTie] = useState(false);
+  const [plays, setPlays] = useState(0);
+  const [player, setPlayer] = useState('X');
+
   
   const initialGrid = [
     ['1', '2', '3'],
@@ -49,20 +52,22 @@ function App() {
       setWinner(true);
       console.log('gano player 2');
     }
+    if(plays == 9) {
+      setTie(true)
+      console.log('empate');
+    }
   }, [gridValues])
   
-  const win = (winCases) => {
-
-  }
-
   const move = (indexRow, index) => {
-    console.log(winner);
-    
     if(!winner && !tie) {
+      console.log(player);
       setGridValues(
         [...gridValues],
-        gridValues[indexRow][index] = 'X'
-        )
+        gridValues[indexRow][index] = player
+      )
+      setPlays(plays + 1)
+      console.log(plays);
+      player === 'X' ? setPlayer('O') : setPlayer('X');
     }
   }
 
