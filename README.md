@@ -1,7 +1,5 @@
 # Tic-Tac-Toe
 
-Podes probar la demo haciendo click [ACA](https://ferutizi.github.io/e-commerce/)
-
 ## Configuracion inicial
 
 Para correr el proyecto localmente:
