@@ -102,6 +102,7 @@ function App() {
             )}
         </tbody>
       </table>
+      <p className="modal__result">Turn of: {player === 'X' ? player : 'O'}</p>
     </>
   );
 }
