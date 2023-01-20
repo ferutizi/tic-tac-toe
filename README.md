@@ -1,5 +1,7 @@
 # Tic-Tac-Toe
 
+Podés probar el juego [ACA](https://ferutizi.github.io/tic-tac-toe/)
+
 ## Configuracion inicial
 
 Para correr el proyecto localmente:
@@ -7,7 +9,7 @@ Para correr el proyecto localmente:
 $ npm install
 $ npm start
 ```
-La aplicacion localmente corre en el puerto 3000
+La aplicacion localmente corre en el puerto [3000](http://localhost:3000/)
 
 ## Tecnologias usadas
 
